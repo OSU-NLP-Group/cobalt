@@ -46,11 +46,6 @@ for example in tqdm(lcb):
             )
         )
     )
-    # sort test cases by input length
-    sorted_test_cases = sorted(private_test_cases, key=lambda x: len(x["input"]))
-    if len(sorted_test_cases) > 20:
-        sorted_test_cases = sorted_test_cases[:4] + sorted_test_cases[-16:]
-    private_test_cases = sorted_test_cases
 
     h_test_cases = {
         "inputs": [],
