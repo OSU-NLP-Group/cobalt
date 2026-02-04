@@ -1,10 +1,10 @@
 # Cobalt
 
-Code and data for the paper "[Bridging Online and Offline RL: Contextual Bandit Learning for Multi-Turn Code Generation](#)".
+Code and data for the paper "[Bridging Online and Offline RL: Contextual Bandit Learning for Multi-Turn Code Generation](https://arxiv.org/abs/2602.03806)".
 
 
 ## Updates:
-- 2026/01/29: Initial release.
+- 2026/02/03: Initial release.
 
 ## Table of Contents
 - [Summary](#summary)
@@ -17,7 +17,7 @@ Code and data for the paper "[Bridging Online and Offline RL: Contextual Bandit 
 
 ## Summary
 
-Recently, there have been significant research interests in training large language models (LLMs) with reinforcement learning (RL) on real-world tasks, such as multi-turn code generation. While online RL tends to perform better than offline RL, its higher training cost and instability hinders wide adoption. In this paper, we build on the observation that multi-turn code generation can be formulated as a one-step recoverable Markov decision process and propose contextual bandit learning with offline trajectories (Cobalt), a new method that combines the benefits of online and offline RL. Cobalt first collects code generation trajectories using a reference LLM and divides them into partial trajectories as contextual prompts. Then, during online bandit learning, the LLM is trained to complete each partial trajectory prompt through single-step code generation. Cobalt substantially outperforms two online RL baselines, GRPO and VeRPO, and improves R1-Distill 8B and Qwen3-8B by up to 9.0 and 6.2 absolute Pass@1 scores on LiveCodeBench. Also, we analyze LLMs' in-context reward hacking behaviors and augment Cobalt training with perturbed trajectories to mitigate this issue. Overall, our empirical results demonstrate Cobalt as a promising solution for one-step recoverable tasks like multi-turn code generation.
+Recently, there have been significant research interests in training large language models (LLMs) with reinforcement learning (RL) on real-world tasks, such as multi-turn code generation. While online RL tends to perform better than offline RL, its higher training cost and instability hinders wide adoption. In this paper, we build on the observation that multi-turn code generation can be formulated as a one-step recoverable Markov decision process and propose contextual bandit learning with offline trajectories (Cobalt), a new method that combines the benefits of online and offline RL. Cobalt first collects code generation trajectories using a reference LLM and divides them into partial trajectories as contextual prompts. Then, during online bandit learning, the LLM is trained to complete each partial trajectory prompt through single-step code generation. Cobalt outperforms two multi-turn online RL baselines based on GRPO and VeRPO, and substantially improves R1-Distill 8B and Qwen3 8B by up to 9.0 and 6.2 absolute Pass@1 scores on LiveCodeBench. Also, we analyze LLMs' in-context reward hacking behaviors and augment Cobalt training with perturbed trajectories to mitigate this issue. Overall, our results demonstrate Cobalt as a promising solution for iterative decision-making tasks like multi-turn code generation.
 
 ## Setup
 
@@ -220,5 +220,13 @@ python run_llm_judge.py \
 If you find our code and data useful, please cite our paper:
 
 ```
-TBA
+@misc{chen2026bridgingonlineofflinerl,
+      title={Bridging Online and Offline RL: Contextual Bandit Learning for Multi-Turn Code Generation}, 
+      author={Ziru Chen and Dongdong Chen and Ruinan Jin and Yingbin Liang and Yujia Xie and Huan Sun},
+      year={2026},
+      eprint={2602.03806},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2602.03806}, 
+}
 ```
